@@ -58,7 +58,7 @@ const App: FC = memo(() => {
                 <Container className="py-5">
                     <Row className="justify-content-center">
                         <Col md={10} lg={8}>
-                            <Card className="py-5 px-3">
+                            <Card className="py-lg-5 p-3">
                                 <h2 className="mb-4 text-center">Convert</h2>
                                 <Row className="align-items-center justify-content-center">
                                     <Col md={4} lg={3}>
