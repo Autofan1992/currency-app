@@ -1,5 +1,4 @@
 import { CurrencyCodesEnum, ExchangeRatesType } from '../types/currency-types'
-import env from 'react-dotenv'
 
 export type APIResponseType = {
     base: CurrencyCodesEnum
@@ -13,7 +12,7 @@ export const getExchangeRates = async (fromCurrency: CurrencyCodesEnum): Promise
     const res = await fetch(`${BASE_URL}?symbols=${currencyCodes}&base=${fromCurrency}`, {
         redirect: 'follow',
         headers: {
-            apikey: env.APIKEY
+            apikey: process.env.REACT_APP_APIKEY as string
         }
     })
 
