@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, memo, useEffect, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { Card, Col, Container, Row } from 'reactstrap'
@@ -9,7 +9,7 @@ import ExchangeIcon from '../common/Icons/ExchangeIcon'
 import { CountAmountMethodsEnum, countCurrencyAmount } from '../../utils'
 import Preloader from '../common/Preloader/Preloader'
 
-const App: FC = memo(() => {
+const App: FC = () => {
     const [isFetching, setIsFetching] = useState(true)
     const [fromCurrency, setFromCurrency] = useState<CurrencyCodesEnum>(CurrencyCodesEnum.UAH)
     const [toCurrency, setToCurrency] = useState<CurrencyCodesEnum>(CurrencyCodesEnum.EUR)
@@ -71,7 +71,10 @@ const App: FC = memo(() => {
                                             selectedCurrency={fromCurrency}
                                         />
                                     </Col>
-                                    <Col xs="auto">
+                                    <Col xs="auto" className="d-none d-md-block">
+                                        <ExchangeIcon size="50px" color="#168B48"/>
+                                    </Col>
+                                    <Col xs="auto" className="d-md-none">
                                         <ExchangeIcon size="50px" color="#168B48"/>
                                     </Col>
                                     <Col md={4} lg={3}>
@@ -93,6 +96,6 @@ const App: FC = memo(() => {
         </main>
         <Footer/>
     </div>
-})
+}
 
 export default App

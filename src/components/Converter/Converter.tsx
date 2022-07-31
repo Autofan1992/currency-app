@@ -1,7 +1,16 @@
 import { FormGroup, Input, Label } from 'reactstrap'
-import { ChangeEventHandler, FC } from 'react'
+import { ChangeEventHandler, FC, memo } from 'react'
 
-const Converter: FC<PropsType> = (
+type PropsType = {
+    isFetching: boolean
+    amount: number
+    handleAmount: ChangeEventHandler<HTMLInputElement>
+    handleSelectedCurrency: ChangeEventHandler<HTMLInputElement>
+    currencyOptions: string[]
+    selectedCurrency: string | undefined
+}
+
+const Converter: FC<PropsType> = memo((
     {
         currencyOptions,
         selectedCurrency,
@@ -13,7 +22,7 @@ const Converter: FC<PropsType> = (
     return <>
         <FormGroup>
             <Label className="d-block">
-                <p className='mb-1'>Currency</p>
+                <p className="mb-1">Currency</p>
                 <Input
                     disabled={isFetching}
                     value={selectedCurrency}
@@ -27,7 +36,7 @@ const Converter: FC<PropsType> = (
         </FormGroup>
         <FormGroup>
             <Label className="d-block">
-                <p className='mb-1'>Amount</p>
+                <p className="mb-1">Amount</p>
                 <Input
                     disabled={isFetching}
                     type="number"
@@ -40,15 +49,6 @@ const Converter: FC<PropsType> = (
             </Label>
         </FormGroup>
     </>
-}
+})
 
 export default Converter
-
-type PropsType = {
-    isFetching: boolean
-    amount: number
-    handleAmount: ChangeEventHandler<HTMLInputElement>
-    handleSelectedCurrency: ChangeEventHandler<HTMLInputElement>
-    currencyOptions: string[]
-    selectedCurrency: string | undefined
-}
