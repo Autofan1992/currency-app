@@ -74,7 +74,9 @@ const App: FC = () => {
                                     <Col xs="auto" className="d-none d-md-block">
                                         <ExchangeIcon size="50px" color="#168B48"/>
                                     </Col>
-                                    <Col xs="auto" className="d-md-none">
+                                    <Col xs="auto" className="d-md-none" style={{
+                                        transform: 'rotate(90deg)'
+                                    }}>
                                         <ExchangeIcon size="50px" color="#168B48"/>
                                     </Col>
                                     <Col md={4} lg={3}>
